@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const _ = require("lodash");
 const app = express();
-const url = "mongodb+srv://admin_mv:Admin%40123@cluster0.fth6nxh.mongodb.net/toDoListDB";
+const url = "mongodb+srv://*******************/toDoListDB";
 
 //set view engine - ejs
 app.set('view engine', 'ejs');
