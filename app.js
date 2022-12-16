@@ -111,17 +111,18 @@ app.post("/", function(req, res){
 app.post("/deleteTask", function(req, res){
     let completedTaskId = req.body.completed;
     const listName = _.capitalize(req.body.customListName);
-    if(listName == "To Do"){
+    if(listName === "To do"){
         todoModel.deleteOne(
             {_id: completedTaskId},
             function(err){
                 if(err){
                     console.log("while deleting -> "+err);
                 }
+                else{
+                    res.redirect('/');
+                }
             }
         );
-    
-        res.redirect('/');
     }
     else{
 
@@ -134,12 +135,11 @@ app.post("/deleteTask", function(req, res){
                 }
                 else{
                     console.log('the found item in custom list = '+result);
-                    res.redirect("/"+listName);
+                    res.redirect("/customList/"+listName);
                 }
             }
         );
     }
-    
 });
 
 app.get("/customList/:routeName", function(req, res){
